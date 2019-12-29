@@ -1,0 +1,772 @@
+/* 菜单栏 */
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css";
+
+body {
+    position: relative; 
+    overflow-x: hidden;
+   
+  }
+
+  .nav .open > a {
+    background-color: transparent;
+  }
+  .nav .open > a:hover {
+    background-color: transparent;
+  }
+  .nav .open > a:focus {
+    background-color: transparent;
+  }
+
+  /*-------------------------------*/
+/*           Wrappers            */
+/*-------------------------------*/
+#wrapper {
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    padding-left: 0;
+    transition: all 0.5s ease;
+  }
+  #wrapper.toggled {
+    padding-left: 220px;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    width: 220px;
+  }
+  #wrapper.toggled #page-content-wrapper {
+    margin-right: -220px;
+    position: absolute;
+  }
+  #sidebar-wrapper {
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    background:rgba(148, 155, 214, 0.63);
+    height: 100%;
+    left: 220px;
+    margin-left: -220px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all 0.5s ease;
+    width: 0;
+    z-index: 1000;
+  }
+  #sidebar-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  #page-content-wrapper {
+    padding-top: 70px;
+    width: 100%;
+  }
+
+  /*-------------------------------*/
+/*     Sidebar nav styles        */
+/*-------------------------------*/
+
+  .sidebar-nav {
+    list-style: none;
+    margin-top: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 220px;
+  }
+  .sidebar-nav li {
+    display: inline-block;
+    line-height: 20px;
+    position: relative;
+    width: 100%;
+  }
+  .sidebar-nav li:before {
+    /* background-color: lightcyan; */
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 3px;
+    z-index: -1;
+  }
+ 
+  .sidebar-nav li:before {
+    background-color: rgba(124, 195, 223, 0.5);
+
+  }
+ 
+  .sidebar-nav li:hover:before {
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 100%;
+  }
+  .sidebar-nav li a {
+    color: #dddddd;
+    display: block;
+    padding: 10px 15px 10px 30px;
+    text-decoration: none;
+  }
+  .sidebar-nav li.open:hover before {
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 100%;
+  }
+
+  .sidebar-nav li a:hover,
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus,
+.sidebar-nav li.open a:hover,
+.sidebar-nav li.open a:active,
+.sidebar-nav li.open a:focus {
+  background-color: transparent;
+  color:black;
+  text-decoration: none;
+}
+
+
+/* 头像 */
+
+.brand a{
+	display: block;
+	float: left;
+	margin: 20px;
+	width: 150px;
+	height: 150px;
+	text-align: center;
+	position: relative;
+}
+.brand img{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+.brand .info{
+	display: none;
+	/* background-color: #f0f0f0; */
+	color: black;
+}
+.vertical .info{
+	width: inherit;
+	height: inherit;
+	/* margin-top: 20%; */
+  border-radius: 50%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/*-------------------------------*/
+/*       Hamburger-Cross         */
+/*-------------------------------*/
+.hamburger {
+    background: transparent;
+    border: none;
+    display: block;
+    height: 32px;
+    margin-left: 15px;
+    position: fixed;
+    top: 20px;
+    width: 32px;
+    z-index: 999;
+  }
+  .hamburger:hover {
+    outline: none;
+  }
+  .hamburger:focus {
+    outline: none;
+  }
+  .hamburger:active {
+    outline: none;
+  }
+  .hamburger.is-closed:before {
+    transform: translate3d(0, 0, 0);
+    transition: all 0.35s ease-in-out;
+    color: purple;
+    content: '';
+    display: block;
+    font-size: 14px;
+    line-height: 32px;
+    opacity: 0;
+    text-align: center;
+    width: 100px;
+  }
+  .hamburger.is-closed:hover before {
+    transform: translate3d(-100px, 0, 0);
+    transition: all 0.35s ease-in-out;
+    display: block;
+    opacity: 1;
+  }
+  .hamburger.is-closed:hover .hamb-top {
+    transition: all 0.35s ease-in-out;
+    top: 0;
+  }
+  .hamburger.is-closed:hover .hamb-bottom {
+   transition: all 0.35s ease-in-out;
+    bottom: 0;
+  }
+  .hamburger.is-closed .hamb-top {
+    transition: all 0.35s ease-in-out;
+    background-color: purple;
+    top: 5px;
+  }
+  .hamburger.is-closed .hamb-middle {
+    background-color: purple;
+    margin-top: -2px;
+    top: 50%;
+  }
+  .hamburger.is-closed .hamb-bottom {
+    transition: all 0.35s ease-in-out;
+    background-color: purple;
+    bottom: 5px;
+  }
+  .hamburger.is-closed .hamb-top,
+  .hamburger.is-closed .hamb-middle,
+  .hamburger.is-closed .hamb-bottom,
+  .hamburger.is-open .hamb-top,
+  .hamburger.is-open .hamb-middle,
+  .hamburger.is-open .hamb-bottom {
+    height: 4px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  .hamburger.is-open .hamb-top {
+    transform: rotate(45deg);
+   transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
+    background-color: purple;
+    margin-top: -2px;
+    top: 50%;
+  }
+  .hamburger.is-open .hamb-middle {
+    background-color: purple;
+    display: none;
+  }
+  .hamburger.is-open .hamb-bottom {
+    transform: rotate(-45deg);
+    transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
+    background-color: purple;
+    margin-top: -2px;
+    top: 50%;
+  }
+  .hamburger.is-open:before {
+   transform: translate3d(0, 0, 0);
+    transition: all 0.35s ease-in-out;
+    color: #ffffff;
+    content: '';
+    display: block;
+    font-size: 14px;
+    line-height: 32px;
+    opacity: 0;
+    text-align: center;
+    width: 100px;
+  }
+  .hamburger.is-open:hover before {
+    transform: translate3d(-100px, 0, 0);
+    transition: all 0.35s ease-in-out;
+    display: block;
+    opacity: 1;
+  }
+  /*-------------------------------*/
+  /*          Dark Overlay         */
+  /*-------------------------------*/
+  .overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+
+  /* content */
+
+
+  
+/* body {
+    font-size: 16px;
+    line-height: 27px;
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+    background: url('/imgs/bg1.jpeg');
+    
+  } */
+
+  .abody{
+    background-color:white;
+  }
+  
+  a {
+    color: #5b6268;
+  }
+  
+  a:hover,
+  a:focus {
+    text-decoration: none;
+    color: #5b6268;
+  }
+  
+  h1 {
+    font-size: 45px;
+    line-height: 60px;
+    font-weight: normal;
+    font-family: 'PT Serif', serif;
+  }
+  
+  h2 {
+    font-size: 30px;
+    line-height: 40px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  h3 {
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  
+  
+/* =============== 
+Font Awesome Icons 
+==================*/
+.fa {
+    font-size: 24px;
+  }
+  
+  ::selection {
+    background: #566572;
+    /* Safari */
+    color: #feffff;
+  }
+  
+  ::-moz-selection {
+    background: #566572;
+    /* Firefox */
+    color: #feffff;
+  }
+
+  
+/* ===========
+Elements that are used througout clean, such as Searchboxes, Blog elements, Widgets, etc. etc. 
+==============*/
+.clean-breadcrumb {
+    
+    float: left;
+    /* display: inline; */
+    margin: 20px 30px;
+  }
+  
+  .clean-breadcrumb a {
+    color: rgba(61, 4, 126, 0.534);
+    font-size: 20px;
+  }
+  
+  .clean-breadcrumb a:hover,
+  .clean-breadcrumb a:focus {
+    text-decoration: none;
+  }
+  
+  .clean-breadcrumb .separator {
+    margin: 0 10px 0 10px;
+  }
+  
+  /* The searchbox in the subheader on top of the site */
+  .clean-searchbox {
+    float: right;
+    /* display: inline-block; */
+    /* min-width: 210px; */
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+  
+  .clean-searchbox form {
+    margin: 0;
+  }
+  
+  .clean-searchbox .fa {
+    color: rgba(61, 4, 126, 0.534);
+    font-size: 19px;
+  }
+  
+  .clean-searchbox .searchbutton,
+  .clean-searchbox .searchfield {
+    color: powderblue;
+  }
+  
+  .clean-searchbox .searchbutton {
+    display: inline-block;
+    border: none;
+    line-height: 20px;
+    height: 31px;
+    vertical-align: middle;
+  }
+  
+  .clean-searchbox .searchbutton a:hover,
+  .clean-searchbox .searchbutton a:focus {
+    text-decoration: none;
+  }
+  
+  .clean-searchbox .searchfield {
+    border: none;
+    height: 22px;
+    line-height: 22px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 5px 6px 4px 6px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-bottom: 0;
+    width: 160px;
+    font-size: 16px;
+    margin-left: -4px;
+    outline: none;
+  }
+  
+  /* .clean-searchbox .searchfield::-webkit-input-placeholder {
+    color: #7b8690;
+  }
+  
+  .clean-searchbox .searchfield:-moz-placeholder {
+    color: #7b8690;
+  }
+  
+  .clean-searchbox .searchfield::-moz-placeholder {
+    
+    color: #7b8690;
+  }
+  
+  .clean-searchbox .searchfield:-ms-input-placeholder {
+    color: #7b8690;
+  }
+  
+  .clean-searchbox .searchfield:focus {
+    -webkit-box-shadow: none;
+   
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+   */
+  /* ==============
+  The list with special bullet points, used both on blog widgets as well as in the footer (both styled here) 
+  =================*/
+
+  .clean-list {
+    list-style: none;
+   
+  }
+  
+  .clean-list li {
+    line-height: 23px;
+    margin-bottom: 14px;
+  }
+  
+  .clean-list li a:hover,
+  .clean-list li a:focus {
+    color: black;
+  }
+  
+  .clean-list li:before {
+    content: "";
+    background-color: #444;
+    border-style: solid;
+    border-width: 4px 4px;
+    display: block;
+    width: 8px;
+    left: -20px;
+    top: 15px;
+    position: relative;
+  }
+  
+  
+  /* ============
+  Blog styles 
+  =============== */
+  .blog-main,
+  .blog-aside {
+    position: relative;
+  }
+  
+  .blog-main:before,
+  .blog-aside:before {
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  @media (max-width: 767px) {
+    .blog-main:before,
+    .blog-aside:before {
+      display: none;
+    }
+  }
+  
+  .blog-main {
+    padding-top: 36px;
+    padding-bottom: 20px;
+  }
+  
+  .blog-main:before {
+    right: -16px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 979px) {
+    .blog-main:before {
+      display: none;
+    }
+  }
+  
+  .blog-aside {
+    padding-top: 36px;
+  }
+  
+  @media (max-width: 767px) {
+    .blog-aside {
+      padding-top: 50px;
+    }
+  }
+  
+  .blog-aside:before {
+    left: 15px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 979px) {
+    .blog-aside:before {
+      display: none;
+    }
+  }
+  
+  /* Blog aside widgets */
+  .aside-widget {
+    margin-bottom: 40px;
+    border: 1px solid #ddd;
+  }
+  
+  .aside-widget header {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .aside-widget header h3 {
+    font-size: 24px;
+    padding: 10px 20px 3px 20px;
+    margin-top: 0;
+    color: #48535f;
+  }
+  
+  .aside-widget .body {
+    margin: 10px 0;
+    padding: 5px;
+  }
+  
+  .aside-widget a {
+    color: #5b6268;
+  }
+  
+  /* =============
+  The tags widget 
+  ================ */
+  .tags {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+  
+  .tags li {
+    float: left;
+  }
+  
+  .tags li a {
+    padding: 3px 15px;
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid rgb(221, 221, 221);
+  }
+  
+  .tags li a:focus,
+  .tags li a:hover {
+    border-color: #222;
+  }
+  
+
+.clearfix img{
+  width: 100%;
+}
+  /* ============
+  The blog main page boxes 
+  =============== */
+  .blog-teaser {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 40px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 979px) {
+    .blog-teaser {
+      display: block;
+      float: none;
+      width: 95%;
+    }
+  }
+  
+  .blog-teaser header {
+    text-align: center;
+  }
+  
+  .blog-teaser header img {
+    margin-bottom: 20px;
+    width: 100%;
+    opacity: 0.8;
+  }
+  
+  .blog-teaser header h3 {
+    color: #454a4e;
+    margin-top: 0;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .blog-teaser header h3 a,
+  .blog-teaser header h3 a:focus,
+  .blog-teaser header h3 a:hover {
+    color: #454a4e;
+  }
+  
+  .blog-teaser header .meta {
+    color: #5a6065;
+  }
+  
+  .blog-teaser header hr {
+    border-top-color: #ced5db;
+    border-bottom: none;
+  }
+  
+  .blog-teaser .body {
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .blog-teaser .btn {
+    float: right;
+    margin-right: 25px;
+    margin-bottom: 18px;
+  }
+  
+
+/* photo */
+#navigation{
+  text-align: center;
+}
+
+h1 {
+  font-family: Lobster;
+  font-weight: normal;
+  margin: 0;
+}
+
+
+  
+  #navigation a {
+    display: inline-block;
+    line-height: 2.8em;
+    margin-right: 1em;
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,0.1);
+    color: #fff;
+    border-radius: 40px;
+    -webkit-transition: .3s ease-in;
+       -moz-transition: .3s ease-in;
+        -ms-transition: .3s ease-in;
+         -o-transition: .3s ease-in;
+            transition: .3s ease-in;
+  }
+  
+  #navigation a.selected, #navigation a:hover {
+    background: rgba(0,0,0,.3);
+    text-decoration: none;
+  }
+
+  #portfolio-item {
+    display: none;
+  }
+  
+  #portfolio {
+    margin: 10px 0
+    -webkit-transform-style: preserve-3d;
+       -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+         -o-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+
+  #portfolio div {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin: 1em;
+    width: 150px;
+    height: 150px;
+    box-shadow: 0px 0px 25px gray;
+  }
+  
+    #portfolio div span {
+      text-align: left;
+      position: absolute;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      width: 90px;
+      padding: 5px 15px 7px;
+      z-index: 1;
+      left: -10px;
+      bottom: 10px;
+    }
+  
+  .animated {
+    -webkit-transition: .9s ease-out;
+       -moz-transition: .9s ease-out;
+        -ms-transition: .9s ease-out;
+         -o-transition: .9s ease-out;
+            transition: .9s ease-out;
+  }
+  
+  .flipped-horizontal-right {
+    -webkit-transform: rotateY(360deg);
+       -moz-transform: rotateY(360deg);
+        -ms-transform: rotateY(360deg);
+         -o-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+  
+  .flipped-horizontal-left {
+    -webkit-transform: rotateY(-360deg);
+       -moz-transform: rotateY(-360deg);
+        -ms-transform: rotateY(-360deg);
+         -o-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
+  }
+  
+  .flipped-vertical-top {
+    -webkit-transform: rotateX(360deg);
+       -moz-transform: rotateX(360deg);
+        -ms-transform: rotateX(360deg);
+         -o-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+  
+  .flipped-vertical-bottom {
+    -webkit-transform: rotateX(-360deg);
+       -moz-transform: rotateX(-360deg);
+        -ms-transform: rotateX(-360deg);
+         -o-transform: rotateX(-360deg);
+            transform: rotateX(-360deg);
+  }
